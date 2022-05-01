@@ -9,11 +9,12 @@ const job = express();
 app.get("/", (req, res) => res.status(200).send("Hello world"));
 
 // candidate
-candidate.post("/candidates", controller.candidate.createCandidate);
+candidate.post("/", controller.candidate.createCandidate);
 
 // job
-job.post("/jobs", controller.job.createJob);
-job.delete("/jobs/:id", controller.job.deleteJob);
+job.post("/", controller.job.createJob);
+job.delete("/:id", controller.job.deleteJob);
+job.patch("/:id", controller.job.updateJob);
 
 exports.app = functions.https.onRequest(app);
 exports.candidate = functions.https.onRequest(candidate);
