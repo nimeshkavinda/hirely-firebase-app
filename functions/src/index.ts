@@ -1,9 +1,14 @@
 import * as functions from "firebase-functions";
+import * as express from "express";
+import controller from "./controllers";
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+const app = express();
+const candidate = express();
+
+app.get("/", (req, res) => res.status(200).send("Hello world"));
+
+// candidate
+candidate.post("/posts", controller.candidate.createCandidate);
+
+exports.app = functions.https.onRequest(app);
+exports.candidate = functions.https.onRequest(candidate);
