@@ -16,6 +16,7 @@ job.post("/", controller.job.createJob);
 job.delete("/:id", controller.job.deleteJob);
 job.patch("/:id", controller.job.updateJob);
 job.get("/", controller.job.getJobs);
+job.get("/:id", controller.job.getJobById);
 
 exports.app = functions.https.onRequest(app);
 exports.candidate = functions.https.onRequest(candidate);

@@ -1,5 +1,5 @@
 import { createCandidate } from "./candidates";
-import { createJob, deleteJob, updateJob, getJobs } from "./jobs";
+import { createJob, deleteJob, updateJob, getJobs, getJobById } from "./jobs";
 
 const controller = {
   candidate: {
@@ -10,6 +10,7 @@ const controller = {
     deleteJob,
     updateJob,
     getJobs,
+    getJobById,
   },
 };
 
