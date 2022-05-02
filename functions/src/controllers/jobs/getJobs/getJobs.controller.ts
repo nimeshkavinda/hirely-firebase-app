@@ -18,7 +18,10 @@ type Request = { body: Job; params: { id: string } };
 const getJobs = async (req: Request, res: Response) => {
   try {
     const jobs: Job[] = [];
-    const querySnapshot = await db.collection("jobs").get();
+    const querySnapshot = await db
+      .collection("jobs")
+      .orderBy("created", "asc")
+      .get();
     querySnapshot.forEach((doc: any) => jobs.push(doc.data()));
     return res.status(200).json(jobs);
   } catch (error) {
