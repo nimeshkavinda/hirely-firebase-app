@@ -1,5 +1,5 @@
 import { Response } from "express";
-import { db } from "../../../firebase.config";
+import { admin, db } from "../../../firebase.config";
 
 type Job = {
   title: string;
@@ -47,6 +47,7 @@ const updateJob = async (req: Request, res: Response) => {
       isRemote: isRemote || currentData.isRemote,
       company: company || currentData.company,
       candidates: candidates || currentData.candidates,
+      updated: admin.firestore.FieldValue.serverTimestamp(),
     };
 
     await job.set(data);

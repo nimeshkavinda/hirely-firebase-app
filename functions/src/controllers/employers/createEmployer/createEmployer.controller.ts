@@ -8,13 +8,23 @@ type Employer = {
   companyName: string;
   email: string;
   companyLogo: string;
+  jobs: {};
+  candidates: {};
 };
 
 type Request = { body: Employer; params: { uid: string } };
 
 const createEmployer = async (req: Request, res: Response) => {
-  const { uid, firstName, lastName, companyName, email, companyLogo } =
-    req.body;
+  const {
+    uid,
+    firstName,
+    lastName,
+    companyName,
+    email,
+    companyLogo,
+    jobs,
+    candidates,
+  } = req.body;
 
   try {
     const employer = db.collection("employers").doc(uid);
@@ -25,6 +35,8 @@ const createEmployer = async (req: Request, res: Response) => {
       companyName,
       email,
       companyLogo,
+      jobs,
+      candidates,
       created: admin.firestore.FieldValue.serverTimestamp(),
     };
 
