@@ -10,7 +10,7 @@ type Job = {
   description: string;
   isRemote: boolean;
   company: {};
-  candidates: {};
+  candidates: [];
 };
 
 type Request = { body: Job; params: { id: string } };

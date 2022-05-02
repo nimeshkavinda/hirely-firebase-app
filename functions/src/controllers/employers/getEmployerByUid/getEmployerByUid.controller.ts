@@ -8,8 +8,8 @@ type Employer = {
   companyName: string;
   email: string;
   companyLogo: string;
-  jobs: {};
-  candidates: {};
+  jobs: [];
+  candidates: [];
 };
 
 type Request = { body: Employer; params: { uid: string } };
