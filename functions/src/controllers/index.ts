@@ -1,6 +1,6 @@
 import { createCandidate } from "./candidates";
 import { createJob, deleteJob, updateJob, getJobs, getJobById } from "./jobs";
-import { createEmployer } from "./employers";
+import { createEmployer, getEmployerByUid } from "./employers";
 
 const controller = {
   candidate: {
@@ -8,6 +8,7 @@ const controller = {
   },
   employer: {
     createEmployer,
+    getEmployerByUid,
   },
   job: {
     createJob,

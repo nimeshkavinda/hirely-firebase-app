@@ -1,11 +1,17 @@
 import * as functions from "firebase-functions";
 import * as express from "express";
 import controller from "./controllers";
+const cors = require("cors");
 
 const app = express();
 const candidate = express();
 const employer = express();
 const job = express();
+
+app.use(cors({ origin: true }));
+candidate.use(cors({ origin: true }));
+employer.use(cors({ origin: true }));
+job.use(cors({ origin: true }));
 
 app.get("/", (req, res) => res.status(200).send("Hello world"));
 
@@ -14,6 +20,7 @@ candidate.post("/", controller.candidate.createCandidate);
 
 // employer
 employer.post("/", controller.employer.createEmployer);
+employer.get("/:uid", controller.employer.getEmployerByUid);
 
 // job
 job.post("/", controller.job.createJob);
