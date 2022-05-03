@@ -25,6 +25,7 @@ candidate.get("/", controller.candidate.getCandidates);
 employer.post("/", controller.employer.createEmployer);
 employer.get("/:uid", controller.employer.getEmployerByUid);
 employer.patch("/:uid", controller.employer.updateEmployer);
+employer.delete("/:uid", controller.employer.deleteEmployer);
 
 // job
 job.post("/", controller.job.createJob);
