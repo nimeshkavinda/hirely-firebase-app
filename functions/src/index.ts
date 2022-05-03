@@ -19,6 +19,7 @@ app.get("/", (req, res) => res.status(200).send("Hello world"));
 candidate.post("/", controller.candidate.createCandidate);
 candidate.patch("/:uid", controller.candidate.updateCandidate);
 candidate.get("/:uid", controller.candidate.getCandidateByUid);
+candidate.get("/", controller.candidate.getCandidates);
 
 // employer
 employer.post("/", controller.employer.createEmployer);
