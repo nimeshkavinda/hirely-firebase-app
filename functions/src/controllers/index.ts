@@ -3,6 +3,7 @@ import {
   updateCandidate,
   getCandidateByUid,
   getCandidates,
+  deleteCandidate,
 } from "./candidates";
 import { createJob, deleteJob, updateJob, getJobs, getJobById } from "./jobs";
 import {
@@ -18,6 +19,7 @@ const controller = {
     updateCandidate,
     getCandidateByUid,
     getCandidates,
+    deleteCandidate,
   },
   employer: {
     createEmployer,
