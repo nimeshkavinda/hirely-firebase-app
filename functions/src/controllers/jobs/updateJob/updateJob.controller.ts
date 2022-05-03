@@ -47,6 +47,7 @@ const updateJob = async (req: Request, res: Response) => {
       isRemote: isRemote || currentData.isRemote,
       company: company || currentData.company,
       candidates: candidates || currentData.candidates,
+      // created: currentData.created,
       updated: admin.firestore.FieldValue.serverTimestamp(),
     };
 

@@ -20,7 +20,7 @@ const getJobs = async (req: Request, res: Response) => {
     const jobs: Job[] = [];
     const querySnapshot = await db
       .collection("jobs")
-      .orderBy("created", "asc")
+      // .orderBy("created", "asc")
       .get();
     querySnapshot.forEach((doc: any) => jobs.push(doc.data()));
     return res.status(200).json(jobs);
